@@ -2,6 +2,10 @@
 
 {% block content %}
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     .note-header {
         display: flex;
         justify-content: space-between;
@@ -9,16 +13,22 @@
         margin-bottom: 20px;
         gap: 10px;
         flex-wrap: wrap;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .note-header h2 {
         flex: 1 1 auto;
         min-width: 200px;
+        margin: 0;
+        max-width: 100%;
+        overflow-wrap: break-word;
     }
 
     .note-header .btn {
         flex-shrink: 0;
         white-space: nowrap;
+        max-width: 100%;
     }
 
     .note-actions {
@@ -53,12 +63,13 @@
 
         .note-header h2 {
             text-align: center;
-            margin: 0;
             min-width: unset;
+            max-width: 100%;
         }
 
         .note-header .btn {
             width: 100%;
+            max-width: 100%;
             text-align: center;
             justify-content: center;
         }
