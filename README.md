@@ -42,12 +42,17 @@ When `USE_MYSQL=True`, the app expects the following database credentials (stand
 
 This project is structured for easy containerization.
 
-1.  **Application**: Use the provided `requirements.txt` to build your Python image.
-2.  **Web Server**: An `nginx.conf` is included in the root directory to help configure Nginx as a reverse proxy.
-3.  **Database**: Spin up a MySQL container named `db`.
+### 🚀 Quick Start
+Run the following command to start the application, database, and web server:
 
-> **Entrypoint**: Ensure your Docker entrypoint runs the Django server on port 8000.
-> Example Command: `python manage.py runserver 0.0.0.0:8000`
+```bash
+docker-compose up --build
+```
+
+The application will automatically:
+1.  Wait for the MySQL database to be ready.
+2.  Run database migrations.
+3.  Start the server at **[http://localhost](http://localhost)**.
 
 ---
 Typeset with ❤️ by **Khalil Ahmad**.
