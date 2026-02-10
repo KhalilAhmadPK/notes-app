@@ -76,15 +76,21 @@
             cursor: pointer;
             font-size: 1rem;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
             min-height: 44px;
             min-width: 44px;
+            transition: all 0.2s ease;
         }
 
         button:hover,
         .btn:hover {
             background-color: #9955e8;
+            color: #121212;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(187, 134, 252, 0.3);
         }
 
         .btn-danger {
@@ -94,6 +100,7 @@
 
         .btn-danger:hover {
             background-color: #b0485b;
+            color: #121212;
         }
 
         /* Form inputs for dark mode */
