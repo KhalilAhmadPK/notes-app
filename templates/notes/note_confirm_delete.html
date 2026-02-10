@@ -1,13 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    .delete-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 480px) {
+        .delete-actions {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .delete-actions .btn {
+            width: 100%;
+            margin: 0 !important;
+        }
+    }
+</style>
+
 <div class="container" style="text-align: center;">
     <h2>Confirm Deletion</h2>
     <p>Are you sure you want to delete the note "<strong>{{ note.title }}</strong>"?</p>
     <form method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Yes, Delete</button>
-        <a href="{% url 'note_list' %}" class="btn" style="background-color: #444; margin-left: 10px;">Cancel</a>
+        <div class="delete-actions">
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            <a href="{% url 'note_list' %}" class="btn" style="background-color: #444;">Cancel</a>
+        </div>
     </form>
 </div>
 {% endblock %}
