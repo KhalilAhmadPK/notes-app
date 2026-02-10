@@ -46,7 +46,7 @@ This project is structured for easy containerization.
 Run the following command to start the application, database, and web server:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 The application will automatically:
