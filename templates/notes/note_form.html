@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>{% if note %}Edit Note{% else %}New Note{% endif %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+            <label for="title" style="display: block; margin-bottom: 5px; font-weight: bold;">Title</label>
+            <input type="text" id="title" name="title" value="{{ note.title }}" required
+                style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="content" style="display: block; margin-bottom: 5px; font-weight: bold;">Content</label>
+            <textarea id="content" name="content" rows="10" required
+                style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">{{ note.content }}</textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn">Save Note</button>
+            <a href="{% url 'note_list' %}" style="margin-left: 10px; color: #bbb;">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

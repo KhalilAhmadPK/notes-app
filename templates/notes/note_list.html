@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2>My Notes</h2>
+        <a href="{% url 'note_create' %}" class="btn">+ New Note</a>
+    </div>
+
+    {% if notes %}
+    <ul style="list-style: none; padding: 0;">
+        {% for note in notes %}
+        <li style="border-bottom: 1px solid #333; padding: 15px 0;">
+            <h3 style="margin: 0 0 10px 0;">{{ note.title }}</h3>
+            <p style="color: #bbb; font-size: 0.9em; white-space: pre-wrap;">{{ note.content|truncatechars:100 }}</p>
+            <div style="font-size: 0.8em; color: #888; margin-bottom: 10px;">
+                {{ note.created_at|date:"M d, Y" }}
+            </div>
+            <div>
+                <a href="{% url 'note_update' note.pk %}">Edit</a> |
+                <a href="{% url 'note_delete' note.pk %}" style="color: #cf6679;">Delete</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p style="text-align: center; color: #777;">You don't have any notes yet. Create one!</p>
+    {% endif %}
+</div>
+{% endblock %}
